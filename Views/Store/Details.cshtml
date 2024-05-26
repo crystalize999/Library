@@ -1,0 +1,67 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="row"> 
+    <div class="col-5">
+        <div>
+            <h4>Book</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Author)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Author)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Language)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Language)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.ISBN)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ISBN)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DatePublished)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DatePublished)
+                </dd>
+                <dt class="col-sm-3">
+                    Price
+                </dt>
+                <dd class="col-sm-9">
+                    @Model.Price.ToString("C", new System.Globalization.CultureInfo("uk-UA"))
+                </dd>    
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Index" class="btn btn-warning"><i class="fa-solid fa-arrow-left">Back</i></a>
+            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model?.Id" class="btn btn-primary store-btn mx-5"><i class="fa-solid fa-cart-plus"></i> Add to cart</a>
+        </div>
+    </div>
+    <div class="col-4">
+        <img src="@Model.ImageUrl" class="w-100" />
+    </div>
+</div>

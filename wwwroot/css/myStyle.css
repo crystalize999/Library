@@ -1,0 +1,38 @@
+﻿.a-cleanup {
+    color: inherit;
+    text-decoration: none;
+}
+
+.a-cleanup:hover {
+    color: inherit;
+}
+.card-img-custom {
+    width: 100%;
+    height: 26vw;
+    object-fit: cover; 
+}
+
+.store-card {
+    transition: all 0.2s ease;
+}
+
+.store-card:hover {
+        transform: scale(1.03);
+        box-shadow: lightgray 1px 3px 3px 1px;
+}
+
+.store-btn {
+    transition: all 0.2s ease;
+}
+
+.store-btn:hover {
+    background-color: forestgreen;
+    border: 1px solid forestgreen;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

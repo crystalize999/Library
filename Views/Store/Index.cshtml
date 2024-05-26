@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Library.Models.Book>
+
+@{
+    ViewData["Title"] = "Store";
+}
+
+<h2 class="my-4">Store</h2>
+
+<form asp-action="Index" class="col-2 my-1 p-2">
+    <div>
+        Filter search
+        <div class="my-1">
+            <input type="text" name="searchString" placeholder="Title or Author" class="form-control-sm col-12" />
+        </div>
+        <div class="my-1">
+            <input type="number" name="minPrice" step="1" placeholder="$min" class="form-control-sm col-5" />&nbsp;&#8212;&nbsp; <input type="number" name="maxPrice" step="1" placeholder="$max"  class="form-control-sm col-5" />
+        </div>
+        <input type="submit" value="Filter" class="btn btn-primary btn-sm" />
+        <a asp-action="Index" class="btn btn-secondary btn-sm float-end">Clear</a>
+    </div>
+</form>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-3 store-card">
+            <div class="card my-3">
+                <a class="a-cleanup" asp-controller="Store" asp-action="Details" asp-route-id="@book.Id">
+                    <img src="@book.ImageUrl" class="card-img-top card-img-custom">
+                    <div class="card-body" style="height: 6em;">
+                        <h5 class="mb-3">@book.Title</h5>
+                    </div>
+                    <div class="card-body d-flex justify-content-between">
+                        <span class="card-text">@book.Price.ToString("C2", new System.Globalization.CultureInfo("uk-UA"))</span>
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary  store-btn"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </a>
+            </div> 
+        </div>
+    }
+</div>
